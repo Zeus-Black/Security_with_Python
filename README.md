@@ -32,7 +32,7 @@ Ce projet a pour but d'évaluer la robustesse des mots de passe des utilisateurs
   ```
 - **Dictionnaire de mots de passe `rockyou.txt`** :
   ```bash
-  sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
+  sudo tar -xzvf /mdp/rockyou.txt.tar.gz
   ```
 
 ---
