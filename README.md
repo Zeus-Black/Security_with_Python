@@ -48,7 +48,7 @@ python3 /mdp/ispasswordsecure.py
 ```
 
 ### 2️⃣ **Vérification des mots de passe dans `users.txt`**
-Fichier : `usertxt.py`
+Fichier : `Mission1.py`
 
 Exécution :
 ```bash
@@ -56,28 +56,42 @@ python3 /mdp/usertxt.py
 ```
 
 ### 3️⃣ **Création d'un utilisateur avec vérification**
-Fichier : `userverify.py`
+Fichier : `Mission2.py`
 
 Exécution :
 ```bash
-sudo python3 /mdp/userverify.py
-```
-
-### 4️⃣ **Vérification des mots de passe stockés dans `/etc/shadow`**
-Fichier : `shadow.py`
-
-Exécution :
-```bash
-sudo python3 /mdp/shadow.py
+sudo python3 /mdp/Mission2.py
 ```
 
 ### 5️⃣ **Brute-force sur `/etc/shadow` avec `rockyou.txt`**
-Fichier : `bruteforce.py`
+Fichier : `Mission3.py`
 
 Exécution :
 ```bash
-sudo python3 bruteforce.py
+sudo python3 /mdp/Mission3.py
 ```
+### 📌 Calcul du temps nécessaire pour trouver un mot de passe par force brute
+
+#### **Hypothèses :**
+- Longueur du mot de passe : **12 caractères**
+- Ensemble de caractères possibles : **94** (majuscules, minuscules, chiffres, symboles)
+- Fréquence de test : **3 milliards d'opérations/seconde** (processeur 3 GHz)
+
+#### **1️⃣ Nombre total de combinaisons possibles**
+Chaque caractère ayant **94 possibilités**, le nombre total de mots de passe possibles est :
+\[
+94^{12} = 475,920,314,814,253,376,475,136
+\]
+
+#### **2️⃣ Temps nécessaire pour tester toutes les combinaisons**
+Avec un processeur à **3 GHz** effectuant **3 × 10⁹ essais par seconde** :
+\[
+\frac{94^{12}}{3 \times 10^9} = 5,030,445 \text{ ans}
+\]
+
+#### **⏳ Conclusion**
+- **Avec un processeur à 3 GHz, il faudrait environ 5 millions d’années pour tester toutes les combinaisons possibles.**
+- **Un mot de passe de 12 caractères bien choisi est donc très résistant aux attaques par force brute.**
 
 ---
 
