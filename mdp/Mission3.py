@@ -1,5 +1,5 @@
-import spwd
-import crypt
+import spwd # type: ignore
+import crypt # type: ignore
 import sys
 import os
 
